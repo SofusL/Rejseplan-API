@@ -1,7 +1,7 @@
-class Model:
+class UserModel:
   def __init__(self):
     pass
-  def fetch_data(self):
+  def fetchData(self):
     departure = [
       {
         "name": "5C",

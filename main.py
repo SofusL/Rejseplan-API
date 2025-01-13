@@ -4,5 +4,5 @@ from controller import *
 uw = UserView()
 um = UserModel()
 uc = UserController(uw, um)
-
-uw = UserView(departure)
+uw.setController(uc)
+uw.run()
