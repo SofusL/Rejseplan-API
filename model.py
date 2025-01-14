@@ -1,32 +1,3 @@
-# class UserModel:
-#   def __init__(self):
-#     pass
-#   def fetchData(self):
-#     departure = [
-#       {
-#         "name": "5C",
-#         "direction" : "Husum Torv",
-#         "scheduled": "10:17",
-#         "actual" : "10:26",
-#         "within" : "3 min"
-#       },
-#       {
-#         "name": "250S",
-#         "direction" : "Gladsaxe",
-#         "scheduled": "10:17",
-#         "actual" : "10:26",
-#         "within" : "5 min"
-#       },
-#       {
-#         "name": "15",
-#         "direction" : "Hellerup",
-#         "scheduled": "10:17",
-#         "actual" : "10:26",
-#         "within" : "12 min"
-#       }
-#     ]
-#     return departure
-  
 import requests
 from datetime import datetime, timedelta
 
@@ -60,6 +31,8 @@ class UserModel:
 
     departureList = response.json()['Departure']
 
+    formattedDepatureList = []
+
     for departure in departureList:
       name = departure.get("name")
       stop = departure.get("stop")
@@ -84,15 +57,17 @@ class UserModel:
 
       direction = departure.get("direction")
 
+      busStop = {
+        "name": name,
+        "stop": stop,
+        "time": time,
+        "rtTime": rtTime,
+        "timeDelta": timeDelta,
+        "direction": direction
+      }
 
-      if stop == "Carl Jacobsens Vej (Gammel Køge Landevej)":
-        print(f"Afgang: {name}")
-        print(f"Stoppested: {stop}")
-        print(f"Planmmæssig afgang: {time}")
-        print(f"Faktisk afgang: {rtTime}")
-        print(f"Om: {timeDelta}")
-        print(f"Retning: {direction}")
-        print("-" * 20)
+      formattedDepatureList.append(busStop)
+    
       
-      return(departureList)
+    return(formattedDepatureList)
 
