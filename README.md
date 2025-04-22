@@ -1,8 +1,6 @@
-# Rejseplan_Afganstider
-A school project using a rejseplan API
+# Rejseplan - API
+Fork of https://github.com/Max-Buhler/Rejseplan_Afganstider
 
-To run the application you have to add a .env file, where you append a valid rejseplanen-api-key to the API_KEY variable
+To run the application, you have to add a .env file, where you append a valid rejseplanen-api-key to the API_KEY variable
 
-- [x] være sej
-
-- [ ] ikke være sej
+Ton get stoppestedId
